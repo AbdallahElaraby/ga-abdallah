@@ -11,19 +11,17 @@ jobs:
     steps:
       # - name : Checkout code
       #   uses: actions/checkout@v2
+      - name: doenload artificat
+        uses: actions/download-artifact@v2
+        with:
+          name: dragon-artifact
+          path: dragon.txt
 
       - name: Run a script
         run: | 
-          # echo "This is workflow-1 running on main branch"
-          # sudo apt update -y
-          # sudo apt install cowsay -y
-          # cowsay -f dragon "Run for cover, I am a DRAGON....RAWR" >> dragon.txt
-          # cat dragon.txt
+          ls -ltrh
+          cat dragon.txt
 
-      # - name: readmefile
-      #   run: |
-      #     ls -ltrh
-      #     cat README.md
   readmefile:
     runs-on: ubuntu-latest
     steps:
@@ -36,3 +34,10 @@ jobs:
           cat README.md
           chmod +x .github/workflows/script.sh
           .github/workflows/script.sh
+      - name: upload artificat
+        uses: actions/upload-artifact@v2
+        with:
+          name: dragon-artifact
+          path: dragon.txt
+          retention-days: 1
+
