@@ -10,8 +10,8 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  CONTAINER_REGISTRY:  ${{vars.Container_REGISTERY}}
-  DOCKER_USERNAME: ${{vars.DOCKER_USERNAME}}  
+  CONTAINER_REGISTRY: githubactionsiti2025.azurecr.io
+  DOCKER_USERNAME: githubactionsiti2025
   IMAGE_NAME: github-actions-nginx
 
 jobs:
