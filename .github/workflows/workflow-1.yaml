@@ -18,7 +18,7 @@ jobs:
           # sudo apt install cowsay -y
           # cowsay -f dragon "Run for cover, I am a DRAGON....RAWR" >> dragon.txt
           # cat dragon.txt
-          chmod +x ./.github/workflows/script.sh
+          chmod +x ./ga-abdallah/.github/workflows/script.sh
           ./ga-abdallah/.github/workflows/script.sh
       # - name: readmefile
       #   run: |
