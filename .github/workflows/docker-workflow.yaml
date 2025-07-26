@@ -26,7 +26,7 @@ jobs:
         run: docker build -t $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest .
 
       - name: Docker Login
-        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login $CONTAINER_REGISTRY -u "$DOCKER_USERNAME" --password-stdin
+        run: echo "${{ secrets.PASSWORD }}" | docker login $CONTAINER_REGISTRY -u "$DOCKER_USERNAME" --password-stdin
 
       - name: Docker Push
         run: docker push $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
