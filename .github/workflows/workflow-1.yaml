@@ -12,7 +12,7 @@ jobs:
       # - name : Checkout code
       #   uses: actions/checkout@v2
       - name: doenload artificat
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: dragon-artifact
           path: dragon.txt
@@ -35,7 +35,7 @@ jobs:
           chmod +x .github/workflows/script.sh
           .github/workflows/script.sh
       - name: upload artificat
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: dragon-artifact
           path: dragon.txt
