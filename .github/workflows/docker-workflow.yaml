@@ -10,7 +10,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  CONTAINER_REGISTRY: "${{ vars.DOCKER_REGISTERY }}"
+  CONTAINER_REGISTRY: "${{vars.CONTAINER_REGISTERY }}"
   DOCKER_USERNAME: "${{ vars.DOCKER_USERNAME }}"
   IMAGE_NAME: github-actions-nginx
 
