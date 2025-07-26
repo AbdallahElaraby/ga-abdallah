@@ -1,0 +1,32 @@
+name: Exploring Variables and Secrets
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: docker-publish
+  cancel-in-progress: true
+
+env:
+  CONTAINER_REGISTRY:  ${{vars.Container_REGISTERY}}
+  DOCKER_USERNAME: ${{vars.DOCKER_USERNAME}}  
+  IMAGE_NAME: github-actions-nginx
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Docker Build
+        run: docker build -t $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest .
+
+      - name: Docker Login
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login $CONTAINER_REGISTRY -u "$DOCKER_USERNAME" --password-stdin
+
+      - name: Docker Push
+        run: docker push $CONTAINER_REGISTRY/$DOCKER_USERNAME/$IMAGE_NAME:latest
