@@ -6,6 +6,7 @@ on:
       - main
 jobs:
   abdallah:
+    needs: readmefile
     runs-on: ubuntu-latest
     steps:
       # - name : Checkout code
@@ -18,14 +19,12 @@ jobs:
           # sudo apt install cowsay -y
           # cowsay -f dragon "Run for cover, I am a DRAGON....RAWR" >> dragon.txt
           # cat dragon.txt
-          chmod +x .github/workflows/script.sh
-          .github/workflows/script.sh
+
       # - name: readmefile
       #   run: |
       #     ls -ltrh
       #     cat README.md
   readmefile:
-    needs: abdallah
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -35,3 +34,5 @@ jobs:
           echo "This is readmefile job"
           ls -ltrh
           cat README.md
+          chmod +x .github/workflows/script.sh
+          .github/workflows/script.sh
