@@ -13,16 +13,19 @@ jobs:
 
       - name: Run a script
         run: | 
-          echo "This is workflow-1 running on main branch"
-          sudo apt update -y
-          sudo apt install cowsay -y
-          cowsay -f dragon "Run for cover, I am a DRAGON....RAWR" >> dragon.txt
-          cat dragon.txt
+          # echo "This is workflow-1 running on main branch"
+          # sudo apt update -y
+          # sudo apt install cowsay -y
+          # cowsay -f dragon "Run for cover, I am a DRAGON....RAWR" >> dragon.txt
+          # cat dragon.txt
+          chmod +x ./.github/workflows/script.sh
+          ./.github/workflows/script.sh
       # - name: readmefile
       #   run: |
       #     ls -ltrh
       #     cat README.md
   readmefile:
+    needs: abdallah
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -32,4 +35,3 @@ jobs:
           echo "This is readmefile job"
           ls -ltrh
           cat README.md
-     
