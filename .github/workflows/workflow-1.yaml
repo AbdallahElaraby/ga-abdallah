@@ -8,18 +8,28 @@ jobs:
   abdallah:
     runs-on: ubuntu-latest
     steps:
-      - name : Checkout code
-        uses: actions/checkout@v2
+      # - name : Checkout code
+      #   uses: actions/checkout@v2
 
       - name: Run a script
         run: | 
           echo "This is workflow-1 running on main branch"
-          # sudo apt update -y
-          # sudo apt install cowsay -y
-          # cowsay -f dragon "Run for cover, I am a DRAGON....RAWR" >> dragon.txt
-          # cat dragon.txt
-      - name: readmefile
+          sudo apt update -y
+          sudo apt install cowsay -y
+          cowsay -f dragon "Run for cover, I am a DRAGON....RAWR" >> dragon.txt
+          cat dragon.txt
+      # - name: readmefile
+      #   run: |
+      #     ls -ltrh
+      #     cat README.md
+  readmefile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Display README file
         run: |
+          echo "This is readmefile job"
           ls -ltrh
           cat README.md
      
