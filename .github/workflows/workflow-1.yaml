@@ -20,7 +20,7 @@ jobs:
       - name: Run a script
         run: | 
           ls -ltrh
-          cat dragon.txt
+          cat dragon.txt/dragon.txt
 
   readmefile:
     runs-on: ubuntu-latest
