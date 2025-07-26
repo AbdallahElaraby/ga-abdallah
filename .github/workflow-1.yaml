@@ -1,0 +1,12 @@
+name: workflow-1
+#trigger: push
+on:
+  push:
+    branches:
+      - main
+jobs:
+  abdallah:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a script
+        run: echo "This is workflow-1 running on main branch"
